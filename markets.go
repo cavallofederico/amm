@@ -34,4 +34,7 @@ func main() {
 
 	str, _ := json.MarshalIndent(res, "", " ")
 	fmt.Print(string(str))
+
+	// for i, market res["markets"]
+
 }

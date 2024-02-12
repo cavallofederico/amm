@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 
 	"github.com/InjectiveLabs/sdk-go/client/common"
@@ -32,9 +31,10 @@ func main() {
 		panic(err)
 	}
 
-	str, _ := json.MarshalIndent(res, "", " ")
-	fmt.Print(string(str))
+	// str, _ := json.MarshalIndent(res, "", " ")
+	// fmt.Print(string(str))
 
-	// for i, market res["markets"]
-
+	for _, market := range res.Markets {
+		fmt.Println(market.MarketId, market.MarketStatus, market.Ticker)
+	}
 }

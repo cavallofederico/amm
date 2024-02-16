@@ -18,8 +18,10 @@ func main() {
 		return
 	}
 	time.Sleep(time.Second * 5)
-	createOrder(marketId, price*0.99, &conectionData, exchangetypes.OrderType_BUY)
+	fmt.Println(price * 0.999)
+	createOrder(marketId, price*0.995, &conectionData, exchangetypes.OrderType_BUY, 10)
 	time.Sleep(time.Second * 5)
-	createOrder(marketId, price*1.01, &conectionData, exchangetypes.OrderType_SELL)
+	fmt.Println(price * 1.001)
+	createOrder(marketId, price*1.005, &conectionData, exchangetypes.OrderType_SELL, 10)
 
 }

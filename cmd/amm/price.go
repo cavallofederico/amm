@@ -34,7 +34,6 @@ func getPriceFromOrderbook(market string) (price float64) {
 				fmt.Println(err)
 				return
 			}
-			fmt.Println(res.MarketId, res.Orderbook.Sells, len(res.Orderbook.Sells), len(res.Orderbook.Buys))
 			sells := make([]float64, len(res.Orderbook.Sells))
 			for i, sell := range res.Orderbook.Sells {
 				sellPrice, err := strconv.ParseFloat(sell.Price, 64)

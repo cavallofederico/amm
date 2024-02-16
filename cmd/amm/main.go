@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
 )
@@ -16,7 +17,9 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+	time.Sleep(time.Second * 5)
 	createOrder(marketId, price*0.99, &conectionData, exchangetypes.OrderType_BUY)
+	time.Sleep(time.Second * 5)
 	createOrder(marketId, price*1.01, &conectionData, exchangetypes.OrderType_SELL)
 
 }

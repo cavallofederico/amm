@@ -92,14 +92,14 @@ func connect() (ConectionData, error) {
 	return data, nil
 }
 
-func createBuyOrder(marketId string, priceFloat float64, conectionData *ConectionData) {
+func createOrder(marketId string, priceFloat float64, conectionData *ConectionData, buy_sell exchangetypes.OrderType) {
 	amount := decimal.NewFromFloat(1)
 	price := decimal.NewFromFloat(priceFloat * 1e12)
 
 	order := conectionData.chainClient.CreateSpotOrder(
 		conectionData.defaultSubaccountID,
 		&chainclient.SpotOrderData{
-			OrderType:    exchangetypes.OrderType_SELL, //BUY SELL BUY_PO SELL_PO
+			OrderType:    buy_sell, //BUY SELL BUY_PO SELL_PO
 			Quantity:     amount,
 			Price:        price,
 			FeeRecipient: conectionData.senderAddress.String(),

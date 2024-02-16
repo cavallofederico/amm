@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	exchangetypes "github.com/InjectiveLabs/sdk-go/chain/exchange/types"
+)
 
 func main() {
 	marketId := "0x0611780ba69656949525013d947713300f56c37b6175e02f26bffa495c3208fe"
@@ -12,6 +16,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	createBuyOrder(marketId, price*0.99, &conectionData)
+	createOrder(marketId, price*0.99, &conectionData, exchangetypes.OrderType_BUY)
+	createOrder(marketId, price*1.01, &conectionData, exchangetypes.OrderType_SELL)
 
 }
